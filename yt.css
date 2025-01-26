@@ -1,0 +1,257 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #181818;
+  color: #ffffff;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #202020;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+header .notifications {
+  position: relative;       /* Allows proper positioning of the badge */
+  display: inline-block;    /* Ensures it aligns properly with other elements */
+  cursor: pointer;          /* Optional: makes it clickable */
+}
+
+header .notifications img {
+  height: 40px;             /* Set size for the bell icon */
+  width: 40px;              /* Ensure it's square */
+  object-fit: contain;      /* Prevents distortion of the image */
+}
+
+header .notifications .badge {
+  position: absolute;       /* Position the badge relative to the bell icon */
+  top: 0;                   /* Align it at the top of the bell */
+  right: 0;                 /* Align it at the right of the bell */
+  height: 20px;             /* Badge height */
+  width: 20px;              /* Badge width */
+  background-color: red;    /* Badge background color */
+  color: white;             /* Text color */
+  font-size: 12px;          /* Font size */
+  font-weight: bold;        /* Bold text for visibility */
+  border-radius: 50%;       /* Make it circular */
+  display: flex;            /* Center the text inside the badge */
+  align-items: center;      /* Vertical centering */
+  justify-content: center;  /* Horizontal centering */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+}
+
+header .user-profile .profile-image {
+  height: 40px;           /* Set the height of the image */
+  width: 40px;            /* Set the width of the image */
+  border-radius: 50%;     /* Make the image circular */
+  border: 2px solid white; /* Add a white border */
+  object-fit: cover;      /* Ensures the image covers the circle properly */
+  cursor: pointer;        /* Makes it clickable (optional) */
+  transition: transform 0.3s ease; /* Adds hover animation */
+}
+
+header .user-profile .profile-image:hover {
+  transform: scale(1.1); /* Slightly enlarges the image on hover */
+}
+
+.mic-icon {
+  height: 50px;           /* Set the size of the button */
+  width: 50px;            /* Ensure it's a square */
+  background-color: #404040; /* Button background color */
+  border: none;           /* Remove default border */
+  border-radius: 50%;     /* Make it circular */
+  display: flex;          /* Use flexbox to center the icon */
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;        /* Add a pointer cursor */
+  transition: background-color 0.3s ease; /* Add hover transition */
+}
+
+.mic-icon img {
+  height: 24px;           /* Set the size of the microphone icon */
+  width: 24px;
+}
+
+.mic-icon:hover {
+  background-color: #505050; /* Change color on hover */
+}
+
+header .logo img {
+  width: 80px;
+  cursor: pointer;
+}
+
+header .search-bar {
+  display: flex;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+header .search-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  outline: none;
+  background-color: #303030;
+  color: white;
+}
+
+header .search-bar input::placeholder {
+  color: #aaaaaa;
+}
+
+header .search-bar button {
+  padding: 10px 16px;
+  border: none;
+  background-color: #404040;
+  color: white;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+header .search-bar button:hover {
+  background-color: #505050;
+}
+
+header .user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #202020;
+  padding: 20px 0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li:hover {
+  background-color: #303030;
+}
+
+.sidebar nav ul li hr {
+  border: 0;
+  border-top: 1px solid #404040;
+  margin: 10px 0;
+}
+
+/* Main Content */
+main {
+  margin-left: 260px;
+  padding: 80px 20px 20px 20px; /* Added top padding for header overlap */
+  transition: margin-left 0.3s ease;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Adjust for smaller screens */
+}
+
+.filter-buttons button {
+  padding: 8px 16px;
+  background-color: #303030;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-buttons button:hover {
+  background-color: #505050;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust columns dynamically */
+  gap: 15px; /* Space between items */
+}
+
+.video-card {
+  background-color: #202020;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-card video {
+  width: 100%;
+}
+
+.video-card h3 {
+  font-size: 16px;
+  margin: 10px;
+  color: #ffffff;
+}
+
+.video-card p {
+  font-size: 14px;
+  color: #aaaaaa;
+  margin: 0 10px 10px 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  header .search-bar {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .filter-buttons {
+    justify-content: center;
+  }
+}
